@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  mongo:
+      image: mongo
+      command: --smallfiles
+      volumes:
+        - "mongo-data:/data/db"
+      ports:
+        - "27017:27017"
+      environment:
+        - "MONGO_INITDB_ROOT_USERNAME=groveuser"
+        - "MONGO_INITDB_ROOT_PASSWORD=grovepass"
+
+volumes:
+  mongo-data:
+    driver: local
